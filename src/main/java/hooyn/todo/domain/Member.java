@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import java.util.UUID;
 
 @Entity
-@Getter @Setter
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {
 
@@ -47,5 +47,12 @@ public class Member {
      */
     public boolean matchPassword(PasswordEncoder passwordEncoder, String password){
         return passwordEncoder.matches(password, getUserPW());
+    }
+
+    /**
+     * 비밀번호 변경 (변경감지)
+     */
+    public void setUserPW(String userPW) {
+        this.userPW = userPW;
     }
 }

@@ -32,8 +32,16 @@ public class MemberService {
      * 아이디에 따른 회원 조회
      */
     @Transactional(readOnly = true)
-    public Member findUser(String userID){
+    public Member findUserByUserID(String userID){
         return memberRepository.findByUserId(userID);
+    }
+
+    /**
+     * UUID에 따른 회원 조회
+     */
+    @Transactional(readOnly = true)
+    public Member findUserByUUID(String uuid){
+        return memberRepository.findOne(uuid);
     }
 
     /**
@@ -53,5 +61,22 @@ public class MemberService {
     public boolean checkPasswordConstraint(String userPW){
         Pattern pattern = Pattern.compile("^(?=.*[a-zA-Z])(?=.*\\d).{8,20}$");
         return pattern.matcher(userPW).matches();
+    }
+
+    /**
+     * 비밀번호 변경 (변경 감지 이용)
+     */
+    @Transactional
+    public UUID changePassword(String uuid, String userPW){
+        Member member = findUserByUUID(uuid);
+        if(member==null) return null; //회원 정보 없음
+
+        //비밀번호 암호화
+        String encodedPW = passwordEncoder.encode(userPW);
+
+        //변경 감지를 이용한 사용자 비밀번호 업데이트
+        member.setUserPW(encodedPW);
+
+        return member.getUuid();
     }
 }
