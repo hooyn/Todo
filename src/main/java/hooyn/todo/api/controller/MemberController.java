@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -127,7 +128,7 @@ public class MemberController {
     /**
      * 비밀번호 변경
      */
-    @PostMapping("/password")
+    @PutMapping("/password")
     public Response changePassword(@RequestBody ChangePasswordRequest request){
         UUID uuid = memberService.changePassword(request.getUuid(), request.getPassword());
 
