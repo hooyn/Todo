@@ -130,15 +130,22 @@ public class MemberController {
      */
     @PutMapping("/password")
     public Response changePassword(@RequestBody ChangePasswordRequest request){
-        UUID uuid = memberService.changePassword(request.getUuid(), request.getPassword());
+        boolean checkPW = memberService.checkPasswordConstraint(request.getPassword());
+        if(checkPW){
+            UUID uuid = memberService.changePassword(request.getUuid(), request.getPassword());
 
-        if(uuid!=null){
-            log.info("비밀번호 변경 Success Code:200 " + now.getDate());
-            return new Response(true, HttpStatus.OK.value(), uuid, "비밀번호가 변경되었습니다.");
+            if(uuid!=null){
+                log.info("비밀번호 변경 Success Code:200 " + now.getDate());
+                return new Response(true, HttpStatus.OK.value(), uuid, "비밀번호가 변경되었습니다.");
+            } else {
+                // 301 에러
+                log.error("회원 정보 Error Code:301 " + now.getDate());
+                return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 회원입니다.");
+            }
         } else {
-            // 301 에러
-            log.error("회원 정보 Error Code:301 " + now.getDate());
-            return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 회원입니다.");
+            // 302 에러
+            log.error("비밀번호 제약조건 Error Code:302 " + now.getDate());
+            return new Response(false, HttpStatus.FOUND.value(), null, "비밀번호는 영문과 숫자포함 8-20자리입니다.");
         }
     }
 
