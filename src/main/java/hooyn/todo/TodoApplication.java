@@ -8,8 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import javax.persistence.EntityManager;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @SpringBootApplication
 @Slf4j

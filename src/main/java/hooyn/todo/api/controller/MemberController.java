@@ -23,7 +23,7 @@ public class MemberController {
     private final PasswordEncoder passwordEncoder;
 
     @PostMapping("/join")
-    public Response signUp(@RequestBody SignUpRequest request){
+    public Response join(@RequestBody SignUpRequest request){
         boolean checkID = memberService.checkDuplicatedID(request.getUserID());
         if(checkID){
             if(memberService.checkPasswordConstraint(request.getUserPW())){
@@ -43,7 +43,7 @@ public class MemberController {
     }
 
     @PostMapping("/login")
-    public Response signUp(@RequestBody SignInRequest request){
+    public Response login(@RequestBody SignInRequest request){
         Member member = memberService.findUser(request.getUserID());
         if(member!=null){
             if(member.matchPassword(passwordEncoder, request.getUserPW())){
@@ -60,4 +60,6 @@ public class MemberController {
             return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 아이디입니다.");
         }
     }
+
+
 }
