@@ -1,4 +1,4 @@
-package hooyn.todo.api.request;
+package hooyn.todo.api.request.member;
 
 import lombok.Getter;
 

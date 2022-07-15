@@ -192,3 +192,47 @@ java.lang.IllegalArgumentException: UUID string too large
 2022-07-13 00:38:09.989  INFO 21012 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-07-13 00:38:09.990  INFO 21012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-07-13 00:38:09.994  INFO 21012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-15 22:42:40.040  INFO 1740 --- [main] hooyn.todo.TodoApplication               : Starting TodoApplication using Java 17.0.1 on PC-HY with PID 1740 (C:\Users\hooyn\intelliJ-workspace\todo\out\production\classes started by hooyn in C:\Users\hooyn\intelliJ-workspace\todo)
+2022-07-15 22:42:40.041  INFO 1740 --- [main] hooyn.todo.TodoApplication               : No active profile set, falling back to 1 default profile: "default"
+2022-07-15 22:42:40.507  INFO 1740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-15 22:42:40.523  INFO 1740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JPA repository interfaces.
+2022-07-15 22:42:40.854  INFO 1740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-15 22:42:40.860  INFO 1740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-15 22:42:40.860  INFO 1740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-15 22:42:40.970  INFO 1740 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-15 22:42:40.970  INFO 1740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 899 ms
+2022-07-15 22:42:41.080  INFO 1740 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-15 22:42:41.116  INFO 1740 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-15 22:42:41.227  INFO 1740 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-15 22:42:41.301  INFO 1740 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-15 22:42:41.441  INFO 1740 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-15 22:42:41.455  INFO 1740 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2022-07-15 22:42:41.872  INFO 1740 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-15 22:42:41.878  INFO 1740 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-15 22:42:41.948  WARN 1740 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-15 22:42:41.987  WARN 1740 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: c1ff5ecc-3583-4467-8bbc-1f1cac41ebae
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-07-15 22:42:42.033  INFO 1740 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3639b04, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5cb8580, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e9b3b3c, org.springframework.security.web.header.HeaderWriterFilter@79c1ccf7, org.springframework.security.web.authentication.logout.LogoutFilter@1aa59698, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32e7b78d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2419fe6f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2ca1e49a, org.springframework.security.web.session.SessionManagementFilter@2474df51, org.springframework.security.web.access.ExceptionTranslationFilter@4bab78ce]
+2022-07-15 22:42:42.236  INFO 1740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-15 22:42:42.243  INFO 1740 --- [main] hooyn.todo.TodoApplication               : Started TodoApplication in 2.486 seconds (JVM running for 3.203)
+2022-07-15 22:43:06.908  INFO 1740 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-15 22:43:06.908  INFO 1740 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-15 22:43:06.909  INFO 1740 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-07-15 22:43:07.247  INFO 1740 --- [http-nio-8080-exec-1] h.todo.api.controller.MemberController   : 313e0237-be2e-4343-a15a-deb075ebc8f2 회원가입 Success Code:200 [ 2022-07-15 22:43:07 ]
+2022-07-15 22:43:10.266 ERROR 1740 --- [http-nio-8080-exec-3] h.todo.api.controller.MemberController   : 비밀번호 불일치 Error Code:302 [ 2022-07-15 22:43:10 ]
+2022-07-15 22:43:19.746  INFO 1740 --- [http-nio-8080-exec-4] h.todo.api.controller.MemberController   : 313e0237-be2e-4343-a15a-deb075ebc8f2 로그인 Success Code:200 [ 2022-07-15 22:43:19 ]
+2022-07-15 22:43:23.404  INFO 1740 --- [http-nio-8080-exec-5] h.todo.api.controller.MemberController   : 비밀번호 제약조건 Success Code:200 [ 2022-07-15 22:43:23 ]
+2022-07-15 22:43:26.789  INFO 1740 --- [http-nio-8080-exec-6] h.todo.api.controller.MemberController   : 2차 비밀번호 일치 Success Code:200 [ 2022-07-15 22:43:26 ]
+2022-07-15 22:43:29.445 ERROR 1740 --- [http-nio-8080-exec-7] h.todo.api.controller.MemberController   : 2차 비밀번호 불일치 Error Code:302 [ 2022-07-15 22:43:29 ]
+2022-07-15 22:43:38.893  INFO 1740 --- [http-nio-8080-exec-8] h.todo.api.controller.MemberController   : 회원 인증 Success Code:200 [ 2022-07-15 22:43:38 ]
+2022-07-15 22:43:50.814  INFO 1740 --- [http-nio-8080-exec-9] h.todo.api.controller.MemberController   : 비밀번호 변경 Success Code:200 [ 2022-07-15 22:43:50 ]
+2022-07-15 22:43:56.277 ERROR 1740 --- [http-nio-8080-exec-10] h.todo.api.controller.MemberController   : 비밀번호 불일치 Error Code:302 [ 2022-07-15 22:43:56 ]
+2022-07-15 22:44:12.466 ERROR 1740 --- [http-nio-8080-exec-2] h.todo.api.controller.MemberController   : 비밀번호 불일치 Error Code:302 [ 2022-07-15 22:44:12 ]
+2022-07-15 22:44:21.429  INFO 1740 --- [http-nio-8080-exec-1] h.todo.api.controller.MemberController   : 313e0237-be2e-4343-a15a-deb075ebc8f2 로그인 Success Code:200 [ 2022-07-15 22:44:21 ]
+2022-07-15 22:44:26.143  INFO 1740 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-15 22:44:26.144  INFO 1740 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-15 22:44:26.148  INFO 1740 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

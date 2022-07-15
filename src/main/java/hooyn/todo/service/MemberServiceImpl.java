@@ -2,9 +2,7 @@ package hooyn.todo.service;
 
 import hooyn.todo.domain.Member;
 import hooyn.todo.repository.MemberRepository;
-import hooyn.todo.repository.MemberRepositoryImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

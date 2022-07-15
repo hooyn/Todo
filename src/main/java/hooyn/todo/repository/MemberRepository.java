@@ -1,7 +1,6 @@
 package hooyn.todo.repository;
 
 import hooyn.todo.domain.Member;
-import hooyn.todo.domain.QMember;
 
 import java.util.UUID;
 
