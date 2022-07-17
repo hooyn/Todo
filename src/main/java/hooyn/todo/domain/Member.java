@@ -4,10 +4,9 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,8 +23,10 @@ public class Member {
     private String userID;
     private String userPW;
 
+    @OneToMany(mappedBy = "member")
+    private List<Todo> todos = new ArrayList<>();
+
     /*
-     Todo mapping
      Memo mapping
     */
 
