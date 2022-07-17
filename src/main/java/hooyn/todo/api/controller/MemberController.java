@@ -34,7 +34,7 @@ public class MemberController {
         if(checkID){
             boolean checkPW = memberService.checkPasswordConstraint(request.getUserPW());
             if(checkPW){
-                UUID data = memberService.join(request.getUserNM(), request.getUserID(), request.getUserPW());
+                String data = String.valueOf(memberService.join(request.getUserNM(), request.getUserID(), request.getUserPW()));
                 log.info(data + " 회원가입 Success Code:200 " + now.getDate());
                 return new Response(true, HttpStatus.OK.value(), data, "회원가입이 정상적으로 처리되었습니다.");
             } else {
@@ -132,7 +132,7 @@ public class MemberController {
     public Response changePassword(@RequestBody ChangePasswordRequest request){
         boolean checkPW = memberService.checkPasswordConstraint(request.getPassword());
         if(checkPW){
-            UUID uuid = memberService.changePassword(request.getUuid(), request.getPassword());
+            String uuid = String.valueOf(memberService.changePassword(request.getUuid(), request.getPassword()));
 
             if(uuid!=null){
                 log.info("비밀번호 변경 Success Code:200 " + now.getDate());
