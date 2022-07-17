@@ -1,10 +1,8 @@
 package hooyn.todo.service;
 
 import hooyn.todo.domain.Member;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
-import java.util.regex.Pattern;
 
 public interface MemberService {
 
