@@ -42,7 +42,7 @@ public class MemberServiceImpl implements MemberService{
      */
     @Transactional(readOnly = true)
     public Member findUserByUUID(String uuid){
-        return memberRepository.findOne(uuid);
+        return memberRepository.findByUUID(uuid);
     }
 
     /**

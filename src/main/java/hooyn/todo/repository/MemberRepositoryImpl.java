@@ -31,7 +31,7 @@ public class MemberRepositoryImpl implements MemberRepository{
      * 회원 엔티티 조회
      */
     @Override
-    public Member findOne(String uuid){
+    public Member findByUUID(String uuid){
         return em.find(Member.class, UUID.fromString(uuid));
     }
 
