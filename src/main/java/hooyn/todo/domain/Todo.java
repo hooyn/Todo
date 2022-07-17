@@ -1,6 +1,7 @@
 package hooyn.todo.domain;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -33,25 +34,43 @@ public class Todo {
     private Member member;
 
     //연간관계 편의 메서드
-    void setMember(Member member){
+    private void setMember(Member member){
         this.member = member;
         member.getTodos().add(this);
     }
 
     //변경감지를 위한 set 메서드
-    public void setTitle(String title){
+    public void changeTitle(String title){
         this.title = title;
     }
 
-    public void setDeadline(Deadline deadline){
+    public void changeDeadline(Deadline deadline){
         this.deadline = deadline;
     }
 
-    public void setContent(String content) {
+    public void changeContent(String content) {
         this.content = content;
     }
 
-    //생성 매서드
+    //빌더를 통한 생성 매서드
+    public static Todo createTodo(String title, String content, Deadline deadline, Member member){
+        Todo todo = Todo.builder()
+                .title(title)
+                .content(content)
+                .deadline(deadline)
+                .build();
 
+        todo.setMember(member);
+
+        return todo;
+    }
+
+    @Builder
+    private Todo(String title, String content, Deadline deadline){
+        this.title = title;
+        this.content = content;
+        this.deadline = deadline;
+        this.create_time = LocalDateTime.now();
+    }
 }
 
