@@ -10,7 +10,7 @@ public interface MemberRepository {
     UUID save(Member member);
 
     //회원 엔티티 조회
-    Member findOne(String uuid);
+    Member findByUUID(String uuid);
 
     //사용자 아이디에 따른 회원 조회
     Member findByUserId(String userID);
