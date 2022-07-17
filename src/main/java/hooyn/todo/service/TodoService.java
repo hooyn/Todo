@@ -2,6 +2,7 @@ package hooyn.todo.service;
 
 import hooyn.todo.domain.Deadline;
 import hooyn.todo.domain.Todo;
+import hooyn.todo.dto.FindTodoDto;
 
 import java.util.List;
 
@@ -11,13 +12,13 @@ public interface TodoService {
     Long writeTodo(Todo todo);
 
     //투두 조회 (todo_id)
-    Todo FindTodoById(Long todo_id);
+    Todo findTodoById(Long todo_id);
 
     //투두 조회 (Deadline)
-    List<Todo> findTodoByDeadline(String uuid, Deadline deadline);
+    List<FindTodoDto> findTodoByDeadline(String uuid, Deadline deadline, Integer page);
 
     //투두 조회 (Content)
-    List<Todo> findTodoByContent(String uuid, String content);
+    List<FindTodoDto> findTodoByContent(String uuid, String content, Integer page);
 
     //투두 수정
     Long updateTodo(Long todo_id, String title, String content, Deadline deadline);

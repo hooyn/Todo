@@ -2,6 +2,7 @@ package hooyn.todo.service;
 
 import hooyn.todo.domain.Deadline;
 import hooyn.todo.domain.Todo;
+import hooyn.todo.dto.FindTodoDto;
 import hooyn.todo.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +33,7 @@ public class TodoServiceImpl implements TodoService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Todo FindTodoById(Long todo_id) {
+    public Todo findTodoById(Long todo_id) {
         return todoRepository.findById(todo_id);
     }
 
@@ -40,8 +42,17 @@ public class TodoServiceImpl implements TodoService {
      */
     @Override
     @Transactional(readOnly = true)
-    public List<Todo> findTodoByDeadline(String uuid, Deadline deadline) {
-        return todoRepository.findByDeadline(uuid, deadline);
+    public List<FindTodoDto> findTodoByDeadline(String uuid, Deadline deadline, Integer page) {
+        List<Todo> todos = todoRepository.findByDeadline(uuid, deadline, page);
+        return todos
+                .stream()
+                .map(todo -> new FindTodoDto(
+                        todo.getId(),
+                        todo.getTitle(),
+                        todo.getContent(),
+                        todo.getDeadline(),
+                        todo.getCreate_time()))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -49,8 +60,17 @@ public class TodoServiceImpl implements TodoService {
      */
     @Override
     @Transactional(readOnly = true)
-    public List<Todo> findTodoByContent(String uuid, String content) {
-        return todoRepository.findByContent(uuid, content);
+    public List<FindTodoDto> findTodoByContent(String uuid, String content, Integer page) {
+        List<Todo> todos = todoRepository.findByContent(uuid, content, page);
+        return todos
+                .stream()
+                .map(todo -> new FindTodoDto(
+                        todo.getId(),
+                        todo.getTitle(),
+                        todo.getContent(),
+                        todo.getDeadline(),
+                        todo.getCreate_time()))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -71,15 +91,15 @@ public class TodoServiceImpl implements TodoService {
         Todo todo = todoRepository.findById(todo_id);
 
         if(!title.isBlank()){
-            todo.setTitle(title);
+            todo.changeTitle(title);
         }
 
         if(!content.isBlank()){
-            todo.setContent(content);
+            todo.changeContent(content);
         }
 
         if(deadline!=null || !deadline.getDate().isBlank()){
-            todo.setTitle(title);
+            todo.changeDeadline(deadline);
         }
 
         return todo_id;
