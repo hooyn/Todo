@@ -17,10 +17,10 @@ public interface TodoRepository {
     List<Todo> findByUUID(String uuid);
 
     //투두 Deadline에 따른 엔티티 검색
-    List<Todo> findByDeadline(String uuid, Deadline deadLine);
+    List<Todo> findByDeadline(String uuid, Deadline deadLine, Integer page);
 
     //투두 콘텐츠 키워드에 따른 엔티티 검색
-    List<Todo> findByContent(String uuid, String content);
+    List<Todo> findByContent(String uuid, String content, Integer page);
 
     //투두 수정, 삭제 권한 확인
     boolean checkAuthorization(String uuid, Long id);

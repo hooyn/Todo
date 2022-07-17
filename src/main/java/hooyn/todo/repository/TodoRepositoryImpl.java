@@ -55,11 +55,14 @@ public class TodoRepositoryImpl implements TodoRepository {
      * 기한에 따른 투두 조회
      */
     @Override
-    public List<Todo> findByDeadline(String uuid, Deadline deadLine) {
+    public List<Todo> findByDeadline(String uuid, Deadline deadLine, Integer page) {
         return queryFactory
                 .selectFrom(todo)
                 .where(todo.member.uuid.eq(UUID.fromString(uuid))
                         .and(todo.deadline.date.eq(deadLine.getDate())))
+                .orderBy(todo.create_time.desc())
+                .offset(0+((page-1)*10))
+                .limit(10)
                 .fetch();
     }
 
@@ -67,11 +70,14 @@ public class TodoRepositoryImpl implements TodoRepository {
      * content가 포함된 투두 조회
      */
     @Override
-    public List<Todo> findByContent(String uuid, String content) {
+    public List<Todo> findByContent(String uuid, String content, Integer page) {
         return queryFactory
                 .selectFrom(todo)
                 .where(todo.member.uuid.eq(UUID.fromString(uuid))
                         .and(todo.content.like("%"+content+"%")))
+                .orderBy(todo.create_time.desc())
+                .offset(0+((page-1)*10))
+                .limit(10)
                 .fetch();
     }
 
