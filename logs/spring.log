@@ -192,3 +192,147 @@ java.lang.IllegalArgumentException: UUID string too large
 2022-07-13 00:38:09.989  INFO 21012 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-07-13 00:38:09.990  INFO 21012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-07-13 00:38:09.994  INFO 21012 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-17 19:32:12.964  INFO 1892 --- [main] hooyn.todo.TodoApplication               : Starting TodoApplication using Java 17.0.1 on PC-HY with PID 1892 (C:\Users\hooyn\intelliJ-workspace\todo\out\production\classes started by hooyn in C:\Users\hooyn\intelliJ-workspace\todo)
+2022-07-17 19:32:12.965  INFO 1892 --- [main] hooyn.todo.TodoApplication               : No active profile set, falling back to 1 default profile: "default"
+2022-07-17 19:32:13.392  INFO 1892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-17 19:32:13.412  INFO 1892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2022-07-17 19:32:13.746  INFO 1892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-17 19:32:13.752  INFO 1892 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-17 19:32:13.752  INFO 1892 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-17 19:32:13.857  INFO 1892 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-17 19:32:13.857  INFO 1892 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 865 ms
+2022-07-17 19:32:13.969  INFO 1892 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-17 19:32:14.008  INFO 1892 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-17 19:32:14.121  INFO 1892 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-17 19:32:14.192  INFO 1892 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-17 19:32:14.321  INFO 1892 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-17 19:32:14.335  INFO 1892 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2022-07-17 19:32:14.751  WARN 1892 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+    alter table todo 
+       drop 
+       foreign key FK3e84kl08v2ghmpwxnfhvwio6m" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
+    alter table todo 
+       drop 
+       foreign key FK3e84kl08v2ghmpwxnfhvwio6m" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.21.jar:5.3.21]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.21.jar:5.3.21]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.21.jar:5.3.21]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.21.jar:5.3.21]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.21.jar:5.3.21]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.21.jar:5.3.21]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.21.jar:5.3.21]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.21.jar:5.3.21]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.1.jar:2.7.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.1.jar:2.7.1]
+	at hooyn.todo.TodoApplication.main(TodoApplication.java:13) ~[classes/:na]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'TODO_DB.todo' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.29.jar:8.0.29]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.9.Final.jar:5.6.9.Final]
+	... 35 common frames omitted
+
+2022-07-17 19:32:14.952  INFO 1892 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-17 19:32:14.958  INFO 1892 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-17 19:32:15.032  WARN 1892 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-17 19:32:15.081  WARN 1892 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: c4334d10-bef7-4ed9-83f4-326156f6c1fa
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-07-17 19:32:15.135  INFO 1892 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@66dd04e2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@495e8a3, org.springframework.security.web.context.SecurityContextPersistenceFilter@35d4035f, org.springframework.security.web.header.HeaderWriterFilter@7323c38c, org.springframework.security.web.authentication.logout.LogoutFilter@7e94de5f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66b90ab3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24435620, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a7aa675, org.springframework.security.web.session.SessionManagementFilter@63a72cc6, org.springframework.security.web.access.ExceptionTranslationFilter@2270f58d]
+2022-07-17 19:32:15.339  INFO 1892 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-17 19:32:15.345  INFO 1892 --- [main] hooyn.todo.TodoApplication               : Started TodoApplication in 2.625 seconds (JVM running for 3.07)
+2022-07-17 19:34:46.617  INFO 1892 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-17 19:34:46.618  INFO 1892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-17 19:34:46.621  INFO 1892 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-17 19:34:48.562  INFO 17544 --- [main] hooyn.todo.TodoApplication               : Starting TodoApplication using Java 17.0.1 on PC-HY with PID 17544 (C:\Users\hooyn\intelliJ-workspace\todo\out\production\classes started by hooyn in C:\Users\hooyn\intelliJ-workspace\todo)
+2022-07-17 19:34:48.563  INFO 17544 --- [main] hooyn.todo.TodoApplication               : No active profile set, falling back to 1 default profile: "default"
+2022-07-17 19:34:48.936  INFO 17544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-17 19:34:48.954  INFO 17544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JPA repository interfaces.
+2022-07-17 19:34:49.247  INFO 17544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-17 19:34:49.252  INFO 17544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-17 19:34:49.252  INFO 17544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-17 19:34:49.351  INFO 17544 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-17 19:34:49.351  INFO 17544 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 765 ms
+2022-07-17 19:34:49.453  INFO 17544 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-17 19:34:49.483  INFO 17544 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-17 19:34:49.573  INFO 17544 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-17 19:34:49.635  INFO 17544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-17 19:34:49.767  INFO 17544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-17 19:34:49.780  INFO 17544 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2022-07-17 19:34:50.378  INFO 17544 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-17 19:34:50.384  INFO 17544 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-17 19:34:50.450  WARN 17544 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-17 19:34:50.493  WARN 17544 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6635b31b-05f7-4917-924b-764be30fc8d6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-07-17 19:34:50.537  INFO 17544 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d93ff21, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@51fb5fe6, org.springframework.security.web.context.SecurityContextPersistenceFilter@4df13dd0, org.springframework.security.web.header.HeaderWriterFilter@b8142f4, org.springframework.security.web.authentication.logout.LogoutFilter@7846913f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30665461, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2792c28, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5ca4c88a, org.springframework.security.web.session.SessionManagementFilter@4d75c604, org.springframework.security.web.access.ExceptionTranslationFilter@662713b6]
+2022-07-17 19:34:50.731  INFO 17544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-17 19:34:50.738  INFO 17544 --- [main] hooyn.todo.TodoApplication               : Started TodoApplication in 2.401 seconds (JVM running for 2.853)
+2022-07-17 19:35:12.957  INFO 17544 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-17 19:35:12.958  INFO 17544 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-17 19:35:12.959  INFO 17544 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-07-17 19:35:13.324  INFO 17544 --- [http-nio-8080-exec-2] h.todo.api.controller.MemberController   : 0e47e35c-3d6e-43e2-8fd7-86b3be5bbec3 회원가입 Success Code:200 [ 2022-07-17 19:35:13 ]
+2022-07-17 19:35:23.258  INFO 17544 --- [http-nio-8080-exec-3] h.todo.api.controller.MemberController   : 0e47e35c-3d6e-43e2-8fd7-86b3be5bbec3 로그인 Success Code:200 [ 2022-07-17 19:35:23 ]
+2022-07-17 19:35:26.937 ERROR 17544 --- [http-nio-8080-exec-4] h.todo.api.controller.MemberController   : 비밀번호 불일치 Error Code:302 [ 2022-07-17 19:35:26 ]
+2022-07-17 19:35:29.610  INFO 17544 --- [http-nio-8080-exec-5] h.todo.api.controller.MemberController   : 0e47e35c-3d6e-43e2-8fd7-86b3be5bbec3 로그인 Success Code:200 [ 2022-07-17 19:35:29 ]
+2022-07-17 19:35:32.337  INFO 17544 --- [http-nio-8080-exec-6] h.todo.api.controller.MemberController   : 비밀번호 제약조건 Success Code:200 [ 2022-07-17 19:35:32 ]
+2022-07-17 19:35:39.233 ERROR 17544 --- [http-nio-8080-exec-7] h.todo.api.controller.MemberController   : 2차 비밀번호 불일치 Error Code:302 [ 2022-07-17 19:35:39 ]
+2022-07-17 19:35:42.510  INFO 17544 --- [http-nio-8080-exec-8] h.todo.api.controller.MemberController   : 2차 비밀번호 일치 Success Code:200 [ 2022-07-17 19:35:42 ]
+2022-07-17 19:35:46.047 ERROR 17544 --- [http-nio-8080-exec-9] h.todo.api.controller.MemberController   : 회원 정보 Error Code:301 [ 2022-07-17 19:35:46 ]
+2022-07-17 19:35:53.290  INFO 17544 --- [http-nio-8080-exec-10] h.todo.api.controller.MemberController   : 회원 인증 Success Code:200 [ 2022-07-17 19:35:53 ]
+2022-07-17 19:37:21.719  INFO 17544 --- [http-nio-8080-exec-3] h.todo.api.controller.TodoController     : 투두 작성 Success Code:200 [ 2022-07-17 19:37:21 ]
+2022-07-17 19:38:02.124  INFO 17544 --- [http-nio-8080-exec-4] h.todo.api.controller.TodoController     : 투두 작성 Success Code:200 [ 2022-07-17 19:38:02 ]
+2022-07-17 19:38:08.966  INFO 17544 --- [http-nio-8080-exec-5] h.todo.api.controller.TodoController     : 투두 작성 Success Code:200 [ 2022-07-17 19:38:08 ]
+2022-07-17 19:38:15.712  WARN 17544 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'page' for method parameter type Integer is not present]
+2022-07-17 19:38:29.642  INFO 17544 --- [http-nio-8080-exec-8] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-17 19:38:29 ]
+2022-07-17 19:39:13.883  INFO 17544 --- [http-nio-8080-exec-9] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-17 19:39:13 ]
+2022-07-17 19:39:29.232  WARN 17544 --- [http-nio-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'page' for method parameter type Integer is not present]
+2022-07-17 19:39:34.866  INFO 17544 --- [http-nio-8080-exec-2] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-17 19:39:34 ]
+2022-07-17 19:39:42.503  INFO 17544 --- [http-nio-8080-exec-3] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-17 19:39:42 ]
+2022-07-17 19:39:59.625  INFO 17544 --- [http-nio-8080-exec-4] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-17 19:39:59 ]
+2022-07-17 19:40:48.929  INFO 17544 --- [http-nio-8080-exec-5] h.todo.api.controller.TodoController     : 투두 업데이트 Success Code:200 [ 2022-07-17 19:40:48 ]
+2022-07-17 19:40:52.327  INFO 17544 --- [http-nio-8080-exec-6] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-17 19:40:52 ]
+2022-07-17 19:41:05.063 ERROR 17544 --- [http-nio-8080-exec-7] h.todo.api.controller.TodoController     : 수정 권한 없음 Error Code:302 [ 2022-07-17 19:41:05 ]
+2022-07-17 19:41:15.325 ERROR 17544 --- [http-nio-8080-exec-8] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-17 19:41:15 ]
+2022-07-17 19:41:19.310  INFO 17544 --- [http-nio-8080-exec-9] h.todo.api.controller.TodoController     : 투두 삭제 Success Code:200 [ 2022-07-17 19:41:19 ]
+2022-07-17 19:41:21.902  INFO 17544 --- [http-nio-8080-exec-10] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-17 19:41:21 ]
+2022-07-17 19:41:27.602  INFO 17544 --- [http-nio-8080-exec-1] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-17 19:41:27 ]
+2022-07-17 19:41:31.324  INFO 17544 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-17 19:41:31.325  INFO 17544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-17 19:41:31.329  INFO 17544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
