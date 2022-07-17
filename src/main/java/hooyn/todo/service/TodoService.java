@@ -20,7 +20,7 @@ public interface TodoService {
     List<Todo> findTodoByContent(String uuid, String content);
 
     //투두 수정
-    //Long updateTodo(Condition condition);
+    Long updateTodo(Long todo_id, String title, String content, Deadline deadline);
 
     //투두 삭제
     Long deleteTodo(Long todo_id);
