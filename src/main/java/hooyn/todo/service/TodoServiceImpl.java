@@ -2,6 +2,7 @@ package hooyn.todo.service;
 
 import hooyn.todo.domain.Deadline;
 import hooyn.todo.domain.Todo;
+import hooyn.todo.domain.TodoStatus;
 import hooyn.todo.dto.FindTodoDto;
 import hooyn.todo.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
@@ -51,7 +52,8 @@ public class TodoServiceImpl implements TodoService {
                         todo.getTitle(),
                         todo.getContent(),
                         todo.getDeadline(),
-                        todo.getCreate_time()))
+                        todo.getCreate_time(),
+                        todo.getStatus()))
                 .collect(Collectors.toList());
     }
 
@@ -69,7 +71,8 @@ public class TodoServiceImpl implements TodoService {
                         todo.getTitle(),
                         todo.getContent(),
                         todo.getDeadline(),
-                        todo.getCreate_time()))
+                        todo.getCreate_time(),
+                        todo.getStatus()))
                 .collect(Collectors.toList());
     }
 
@@ -111,5 +114,24 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public boolean checkAuthorization(String uuid, Long todo_id) {
         return todoRepository.checkAuthorization(uuid, todo_id);
+    }
+
+    /**
+     * 투두 상태 변경 (완료 & 완료취소)
+     */
+    @Override
+    @Transactional
+    public Long updateTodoStatus(Long todo_id) {
+        Todo todo = todoRepository.findById(todo_id);
+
+        TodoStatus status = todo.getStatus();
+
+        if(status.equals(TodoStatus.NOT_COMPLETE)){
+            todo.changeTodoStatus(TodoStatus.COMPLETE);
+        } else if(status.equals(TodoStatus.COMPLETE)){
+            todo.changeTodoStatus(TodoStatus.NOT_COMPLETE);
+        }
+
+        return todo.getId();
     }
 }

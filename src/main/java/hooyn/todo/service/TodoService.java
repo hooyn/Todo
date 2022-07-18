@@ -3,6 +3,7 @@ package hooyn.todo.service;
 import hooyn.todo.domain.Deadline;
 import hooyn.todo.domain.Todo;
 import hooyn.todo.dto.FindTodoDto;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,4 +29,7 @@ public interface TodoService {
 
     //권한 확인
     boolean checkAuthorization(String uuid, Long todo_id);
+
+    //투두 상태 변경 (완료 & 완료취소)
+    Long updateTodoStatus(Long todo_id);
 }

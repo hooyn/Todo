@@ -29,6 +29,9 @@ public class Todo {
 
     private LocalDateTime create_time;
 
+    @Enumerated(EnumType.STRING)
+    private TodoStatus status;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "uuid")
     private Member member;
@@ -52,6 +55,10 @@ public class Todo {
         this.content = content;
     }
 
+    public void changeTodoStatus(TodoStatus status){
+        this.status = status;
+    }
+
     //빌더를 통한 생성 매서드
     public static Todo createTodo(String title, String content, Deadline deadline, Member member){
         Todo todo = Todo.builder()
@@ -71,6 +78,7 @@ public class Todo {
         this.content = content;
         this.deadline = deadline;
         this.create_time = LocalDateTime.now();
+        this.status = TodoStatus.NOT_COMPLETE;
     }
 }
 

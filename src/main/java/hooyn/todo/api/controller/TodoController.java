@@ -1,9 +1,6 @@
 package hooyn.todo.api.controller;
 
-import hooyn.todo.api.request.todo.DeleteTodoRequest;
-import hooyn.todo.api.request.todo.FindTodoRequest;
-import hooyn.todo.api.request.todo.UpdateTodoRequest;
-import hooyn.todo.api.request.todo.WriteTodoRequest;
+import hooyn.todo.api.request.todo.*;
 import hooyn.todo.api.response.Response;
 import hooyn.todo.domain.Member;
 import hooyn.todo.domain.Todo;
@@ -133,6 +130,26 @@ public class TodoController {
                 return new Response(false, HttpStatus.FOUND.value(), null, "삭제 권한이 없습니다.");
             }
 
+        } else {
+            // 301 에러
+            log.error("아이디 없음 Error Code:301 " + now.getDate());
+            return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 회원입니다.");
+        }
+    }
+
+    /**
+     * 투두 상태 변경
+     */
+    @PutMapping("/todo/status")
+    public Response updateTodoStatus(@RequestBody UpdateTodoStatusRequest request){
+
+        Member member = memberService.findUserByUUID(request.getUuid());
+
+        if(member!=null){
+            Long todo_id = todoService.updateTodoStatus(request.getTodo_id());
+
+            log.info("투두 상태 변경 Success Code:200 " + now.getDate());
+            return new Response(true, HttpStatus.OK.value(), todo_id, "투두 상태가 변경되었습니다.");
         } else {
             // 301 에러
             log.error("아이디 없음 Error Code:301 " + now.getDate());
