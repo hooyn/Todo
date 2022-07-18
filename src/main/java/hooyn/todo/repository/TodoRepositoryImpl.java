@@ -73,8 +73,10 @@ public class TodoRepositoryImpl implements TodoRepository {
     public List<Todo> findByContent(String uuid, String content, Integer page) {
         return queryFactory
                 .selectFrom(todo)
-                .where(todo.member.uuid.eq(UUID.fromString(uuid))
-                        .and(todo.content.like("%"+content+"%")))
+                .where(
+                        (todo.content.like("%"+content+"%").or(todo.title.like("%"+content+"%")))
+                                .and(todo.member.uuid.eq(UUID.fromString(uuid)))
+                )
                 .orderBy(todo.create_time.desc())
                 .offset(0+((page-1)*10))
                 .limit(10)
