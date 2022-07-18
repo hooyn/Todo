@@ -336,3 +336,30 @@ This generated password is for development use only. Your security configuration
 2022-07-17 19:41:31.324  INFO 17544 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-07-17 19:41:31.325  INFO 17544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-07-17 19:41:31.329  INFO 17544 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-18 18:27:25.278  INFO 1512 --- [main] hooyn.todo.TodoApplication               : Starting TodoApplication using Java 17.0.3.1 on com with PID 1512 (C:\Users\comst\IdeaProjects\Todo\build\classes\java\main started by comst in C:\Users\comst\IdeaProjects\Todo)
+2022-07-18 18:27:25.283  INFO 1512 --- [main] hooyn.todo.TodoApplication               : No active profile set, falling back to 1 default profile: "default"
+2022-07-18 18:27:26.589  INFO 1512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-18 18:27:26.644  INFO 1512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 0 JPA repository interfaces.
+2022-07-18 18:27:27.489  INFO 1512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-18 18:27:27.661  INFO 1512 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2318 ms
+2022-07-18 18:27:27.891  INFO 1512 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-18 18:27:27.978  INFO 1512 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-18 18:27:28.204  INFO 1512 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-18 18:27:28.322  INFO 1512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-18 18:27:28.707  INFO 1512 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-18 18:27:28.759  INFO 1512 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2022-07-18 18:27:29.908  INFO 1512 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-18 18:27:29.938  INFO 1512 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-18 18:27:30.077  WARN 1512 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-18 18:27:30.214  WARN 1512 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: eebe4e82-7e1d-41fe-a621-1dcd36943153
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-07-18 18:27:30.333  INFO 1512 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@66b90ab3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16e4db59, org.springframework.security.web.context.SecurityContextPersistenceFilter@70f91ae3, org.springframework.security.web.header.HeaderWriterFilter@2aa811f9, org.springframework.security.web.authentication.logout.LogoutFilter@543ac221, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c2a3f0c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@227b9277, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@33fec21, org.springframework.security.web.session.SessionManagementFilter@7d4da729, org.springframework.security.web.access.ExceptionTranslationFilter@1d5bb5c]
+2022-07-18 18:27:30.770  INFO 1512 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-18 18:27:30.784  INFO 1512 --- [main] hooyn.todo.TodoApplication               : Started TodoApplication in 6.385 seconds (JVM running for 7.5)
+2022-07-18 18:27:30.804  INFO 1512 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-18 18:27:30.806  INFO 1512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-18 18:27:30.813  INFO 1512 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
