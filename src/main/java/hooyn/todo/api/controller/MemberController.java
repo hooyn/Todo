@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -131,8 +133,9 @@ public class MemberController {
         boolean checkPW = memberService.checkPasswordConstraint(request.getPassword());
         if(checkPW){
             String uuid = String.valueOf(memberService.changePassword(request.getUuid(), request.getPassword()));
+            //UUID로 받으면 UUID는 null이 될 수 없기 때문에 500에러가 나옵니다. 조심조심!
 
-            if(uuid!=null){
+            if(!uuid.equals("null")){
                 log.info("비밀번호 변경 Success Code:200 " + now.getDate());
                 return new Response(true, HttpStatus.OK.value(), uuid, "비밀번호가 변경되었습니다.");
             } else {
