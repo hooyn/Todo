@@ -863,3 +863,220 @@ This generated password is for development use only. Your security configuration
 2022-07-21 14:48:09.312 ERROR 6856 --- [http-nio-8080-exec-5] h.todo.api.controller.MemberController   : 회원 정보 Error Code:301 [ 2022-07-21 14:48:09 ]
 2022-07-21 14:48:31.916  INFO 6856 --- [http-nio-8080-exec-7] h.todo.api.controller.MemberController   : 비밀번호 변경 Success Code:200 [ 2022-07-21 14:48:31 ]
 2022-07-21 14:48:42.010 ERROR 6856 --- [http-nio-8080-exec-6] h.todo.api.controller.MemberController   : 비밀번호 제약조건 Error Code:302 [ 2022-07-21 14:48:42 ]
+2022-07-21 15:01:55.742 ERROR 6856 --- [http-nio-8080-exec-10] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:01:55 ]
+2022-07-21 15:04:10.209  INFO 6856 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-21 15:04:10.210  INFO 6856 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-21 15:04:10.214  INFO 6856 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-21 15:04:13.785  INFO 1860 --- [main] hooyn.todo.TodoApplication               : Starting TodoApplication using Java 17.0.1 on PC-HY with PID 1860 (C:\Users\hooyn\intelliJ-workspace\todo\out\production\classes started by hooyn in C:\Users\hooyn\intelliJ-workspace\todo)
+2022-07-21 15:04:13.786  INFO 1860 --- [main] hooyn.todo.TodoApplication               : No active profile set, falling back to 1 default profile: "default"
+2022-07-21 15:04:14.189  INFO 1860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-21 15:04:14.208  INFO 1860 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JPA repository interfaces.
+2022-07-21 15:04:14.515  INFO 1860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-21 15:04:14.520  INFO 1860 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-21 15:04:14.520  INFO 1860 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-21 15:04:14.625  INFO 1860 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-21 15:04:14.625  INFO 1860 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 814 ms
+2022-07-21 15:04:14.732  INFO 1860 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-21 15:04:14.763  INFO 1860 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-21 15:04:14.856  INFO 1860 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-21 15:04:14.921  INFO 1860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-21 15:04:15.056  INFO 1860 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-21 15:04:15.069  INFO 1860 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2022-07-21 15:04:15.530  INFO 1860 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-21 15:04:15.536  INFO 1860 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-21 15:04:15.610  WARN 1860 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-21 15:04:15.654  WARN 1860 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5f38bdfd-e7e1-4eca-8e92-5bbccf1d5fad
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-07-21 15:04:15.700  INFO 1860 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70ed902a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22f80e36, org.springframework.security.web.context.SecurityContextPersistenceFilter@53079ae6, org.springframework.security.web.header.HeaderWriterFilter@6f17dd06, org.springframework.security.web.authentication.logout.LogoutFilter@6a38e3d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@603c2dee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24258b54, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c98981e, org.springframework.security.web.session.SessionManagementFilter@6ec98ccc, org.springframework.security.web.access.ExceptionTranslationFilter@415262a0]
+2022-07-21 15:04:15.900  INFO 1860 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-21 15:04:15.906  INFO 1860 --- [main] hooyn.todo.TodoApplication               : Started TodoApplication in 2.376 seconds (JVM running for 2.89)
+2022-07-21 15:04:19.608  INFO 1860 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-21 15:04:19.608  INFO 1860 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-21 15:04:19.609  INFO 1860 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-07-21 15:04:20.076 ERROR 1860 --- [http-nio-8080-exec-1] h.todo.api.controller.MemberController   : 아이디 중복 Error Code:301 [ 2022-07-21 15:04:20 ]
+2022-07-21 15:04:35.445 ERROR 1860 --- [http-nio-8080-exec-3] h.todo.api.controller.TodoController     : 필수 입력사항 Error Code:301 [ 2022-07-21 15:04:35 ]
+2022-07-21 15:05:06.120 ERROR 1860 --- [http-nio-8080-exec-4] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:05:06 ]
+2022-07-21 15:05:11.245 ERROR 1860 --- [http-nio-8080-exec-5] h.todo.api.controller.MemberController   : 비밀번호 불일치 Error Code:302 [ 2022-07-21 15:05:11 ]
+2022-07-21 15:05:31.672 ERROR 1860 --- [http-nio-8080-exec-6] h.todo.api.controller.MemberController   : 비밀번호 불일치 Error Code:302 [ 2022-07-21 15:05:31 ]
+2022-07-21 15:05:40.967 ERROR 1860 --- [http-nio-8080-exec-7] h.todo.api.controller.MemberController   : 비밀번호 불일치 Error Code:302 [ 2022-07-21 15:05:40 ]
+2022-07-21 15:05:45.014 ERROR 1860 --- [http-nio-8080-exec-8] h.todo.api.controller.MemberController   : 비밀번호 불일치 Error Code:302 [ 2022-07-21 15:05:45 ]
+2022-07-21 15:05:57.693 ERROR 1860 --- [http-nio-8080-exec-9] h.todo.api.controller.MemberController   : 비밀번호 제약조건 Error Code:302 [ 2022-07-21 15:05:57 ]
+2022-07-21 15:06:05.240  INFO 1860 --- [http-nio-8080-exec-10] h.todo.api.controller.MemberController   : 비밀번호 변경 Success Code:200 [ 2022-07-21 15:06:05 ]
+2022-07-21 15:06:09.947  INFO 1860 --- [http-nio-8080-exec-2] h.todo.api.controller.MemberController   : 40f150f6-cb73-443f-9e11-6373a3396d2a 로그인 Success Code:200 [ 2022-07-21 15:06:09 ]
+2022-07-21 15:06:20.658  INFO 1860 --- [http-nio-8080-exec-1] h.todo.api.controller.TodoController     : 투두 작성 Success Code:200 [ 2022-07-21 15:06:20 ]
+2022-07-21 15:07:04.639 ERROR 1860 --- [http-nio-8080-exec-3] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:07:04 ]
+2022-07-21 15:07:12.266  INFO 1860 --- [http-nio-8080-exec-4] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-21 15:07:12 ]
+2022-07-21 15:08:47.849  INFO 1860 --- [http-nio-8080-exec-7] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-21 15:08:47 ]
+2022-07-21 15:08:50.593 ERROR 1860 --- [http-nio-8080-exec-8] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:08:50 ]
+2022-07-21 15:08:56.730  INFO 1860 --- [http-nio-8080-exec-9] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-21 15:08:56 ]
+2022-07-21 15:09:04.239  INFO 1860 --- [http-nio-8080-exec-10] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-21 15:09:04 ]
+2022-07-21 15:09:24.009  INFO 1860 --- [http-nio-8080-exec-2] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-21 15:09:24 ]
+2022-07-21 15:10:01.509  INFO 1860 --- [http-nio-8080-exec-1] h.todo.api.controller.TodoController     : 투두 작성 Success Code:200 [ 2022-07-21 15:10:01 ]
+2022-07-21 15:10:05.341  INFO 1860 --- [http-nio-8080-exec-3] h.todo.api.controller.TodoController     : 투두 작성 Success Code:200 [ 2022-07-21 15:10:05 ]
+2022-07-21 15:10:08.315  INFO 1860 --- [http-nio-8080-exec-4] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-21 15:10:08 ]
+2022-07-21 15:10:33.511 ERROR 1860 --- [http-nio-8080-exec-5] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:10:33 ]
+2022-07-21 15:12:13.351 ERROR 1860 --- [http-nio-8080-exec-8] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:12:13 ]
+2022-07-21 15:12:26.218  INFO 1860 --- [http-nio-8080-exec-9] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-21 15:12:26 ]
+2022-07-21 15:16:09.126 ERROR 1860 --- [http-nio-8080-exec-1] h.todo.api.controller.TodoController     : 수정 권한 없음 Error Code:302 [ 2022-07-21 15:16:09 ]
+2022-07-21 15:16:37.027 ERROR 1860 --- [http-nio-8080-exec-3] h.todo.api.controller.TodoController     : 수정 권한 없음 Error Code:302 [ 2022-07-21 15:16:37 ]
+2022-07-21 15:16:46.023 ERROR 1860 --- [http-nio-8080-exec-4] h.todo.api.controller.TodoController     : 수정 권한 없음 Error Code:302 [ 2022-07-21 15:16:46 ]
+2022-07-21 15:17:01.070  INFO 1860 --- [http-nio-8080-exec-5] h.todo.api.controller.MemberController   : 9d86ac3e-9099-41a8-a8a7-4f08de5c33cd 회원가입 Success Code:200 [ 2022-07-21 15:17:01 ]
+2022-07-21 15:17:06.890 ERROR 1860 --- [http-nio-8080-exec-6] h.todo.api.controller.TodoController     : 수정 권한 없음 Error Code:302 [ 2022-07-21 15:17:06 ]
+2022-07-21 15:17:10.544 ERROR 1860 --- [http-nio-8080-exec-7] h.todo.api.controller.TodoController     : 수정 권한 없음 Error Code:302 [ 2022-07-21 15:17:10 ]
+2022-07-21 15:17:27.803 ERROR 1860 --- [http-nio-8080-exec-8] h.todo.api.controller.TodoController     : 투두 없음 Error Code:301 [ 2022-07-21 15:17:27 ]
+2022-07-21 15:17:57.742 ERROR 1860 --- [http-nio-8080-exec-9] h.todo.api.controller.TodoController     : 수정 권한 없음 Error Code:302 [ 2022-07-21 15:17:57 ]
+2022-07-21 15:18:03.720 ERROR 1860 --- [http-nio-8080-exec-10] h.todo.api.controller.TodoController     : 수정 권한 없음 Error Code:302 [ 2022-07-21 15:18:03 ]
+2022-07-21 15:18:06.112 ERROR 1860 --- [http-nio-8080-exec-2] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:18:06 ]
+2022-07-21 15:18:13.146  INFO 1860 --- [http-nio-8080-exec-1] h.todo.api.controller.TodoController     : 투두 조회 Success Code:200 [ 2022-07-21 15:18:13 ]
+2022-07-21 15:18:16.765  INFO 1860 --- [http-nio-8080-exec-3] h.todo.api.controller.TodoController     : 투두 업데이트 Success Code:200 [ 2022-07-21 15:18:16 ]
+2022-07-21 15:20:38.245 ERROR 1860 --- [http-nio-8080-exec-6] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:20:38 ]
+2022-07-21 15:20:49.254 ERROR 1860 --- [http-nio-8080-exec-7] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:20:49 ]
+2022-07-21 15:20:58.583 ERROR 1860 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "hooyn.todo.domain.Todo.getStatus()" because "todo" is null] with root cause
+
+java.lang.NullPointerException: Cannot invoke "hooyn.todo.domain.Todo.getStatus()" because "todo" is null
+	at hooyn.todo.service.TodoServiceImpl.updateTodoStatus(TodoServiceImpl.java:127) ~[classes/:na]
+	at hooyn.todo.service.TodoServiceImpl$$FastClassBySpringCGLIB$$b5067e3f.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.21.jar:5.3.21]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793) ~[spring-aop-5.3.21.jar:5.3.21]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.21.jar:5.3.21]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.21.jar:5.3.21]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.21.jar:5.3.21]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.21.jar:5.3.21]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.21.jar:5.3.21]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.21.jar:5.3.21]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.21.jar:5.3.21]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.21.jar:5.3.21]
+	at hooyn.todo.service.TodoServiceImpl$$EnhancerBySpringCGLIB$$544853cf.updateTodoStatus(<generated>) ~[classes/:na]
+	at hooyn.todo.api.controller.TodoController.updateTodoStatus(TodoController.java:155) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:684) ~[tomcat-embed-core-9.0.64.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.21.jar:5.3.21]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.64.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183) ~[spring-security-web-5.7.2.jar:5.7.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.21.jar:5.3.21]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1787) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.64.jar:9.0.64]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2022-07-21 15:21:03.908  INFO 1860 --- [http-nio-8080-exec-10] h.todo.api.controller.TodoController     : 투두 상태 변경 Success Code:200 [ 2022-07-21 15:21:03 ]
+2022-07-21 15:22:54.240  INFO 1860 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-21 15:22:54.241  INFO 1860 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-21 15:22:54.244  INFO 1860 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-07-21 15:22:57.793  INFO 15004 --- [main] hooyn.todo.TodoApplication               : Starting TodoApplication using Java 17.0.1 on PC-HY with PID 15004 (C:\Users\hooyn\intelliJ-workspace\todo\out\production\classes started by hooyn in C:\Users\hooyn\intelliJ-workspace\todo)
+2022-07-21 15:22:57.794  INFO 15004 --- [main] hooyn.todo.TodoApplication               : No active profile set, falling back to 1 default profile: "default"
+2022-07-21 15:22:58.210  INFO 15004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-07-21 15:22:58.230  INFO 15004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JPA repository interfaces.
+2022-07-21 15:22:58.558  INFO 15004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-21 15:22:58.564  INFO 15004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-21 15:22:58.564  INFO 15004 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.64]
+2022-07-21 15:22:58.672  INFO 15004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-21 15:22:58.672  INFO 15004 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 853 ms
+2022-07-21 15:22:58.781  INFO 15004 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-07-21 15:22:58.812  INFO 15004 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.9.Final
+2022-07-21 15:22:58.904  INFO 15004 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-07-21 15:22:58.972  INFO 15004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-21 15:22:59.095  INFO 15004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-21 15:22:59.109  INFO 15004 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2022-07-21 15:22:59.568  INFO 15004 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-07-21 15:22:59.575  INFO 15004 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-07-21 15:22:59.651  WARN 15004 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-07-21 15:22:59.695  WARN 15004 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 192ce90f-e7f2-4338-ad5b-5ae449d12ae3
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2022-07-21 15:22:59.741  INFO 15004 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@70ed902a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@22f80e36, org.springframework.security.web.context.SecurityContextPersistenceFilter@53079ae6, org.springframework.security.web.header.HeaderWriterFilter@6f17dd06, org.springframework.security.web.authentication.logout.LogoutFilter@6a38e3d1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@603c2dee, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24258b54, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c98981e, org.springframework.security.web.session.SessionManagementFilter@6ec98ccc, org.springframework.security.web.access.ExceptionTranslationFilter@415262a0]
+2022-07-21 15:22:59.947  INFO 15004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-21 15:22:59.953  INFO 15004 --- [main] hooyn.todo.TodoApplication               : Started TodoApplication in 2.397 seconds (JVM running for 2.884)
+2022-07-21 15:23:01.229  INFO 15004 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-21 15:23:01.229  INFO 15004 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-07-21 15:23:01.230  INFO 15004 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-07-21 15:23:01.419 ERROR 15004 --- [http-nio-8080-exec-1] h.todo.api.controller.TodoController     : 투두 없음 Error Code:302 [ 2022-07-21 15:23:01 ]
+2022-07-21 15:23:41.629 ERROR 15004 --- [http-nio-8080-exec-3] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:23:41 ]
+2022-07-21 15:23:47.755 ERROR 15004 --- [http-nio-8080-exec-4] h.todo.api.controller.TodoController     : 아이디 없음 Error Code:301 [ 2022-07-21 15:23:47 ]
+2022-07-21 15:23:54.074 ERROR 15004 --- [http-nio-8080-exec-5] h.todo.api.controller.TodoController     : 삭제 권한 없음 Error Code:302 [ 2022-07-21 15:23:54 ]
+2022-07-21 15:24:09.683  INFO 15004 --- [http-nio-8080-exec-6] h.todo.api.controller.TodoController     : 투두 삭제 Success Code:200 [ 2022-07-21 15:24:09 ]
+2022-07-21 15:25:13.736  INFO 15004 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-07-21 15:25:13.736  INFO 15004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-07-21 15:25:13.740  INFO 15004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

@@ -31,6 +31,12 @@ public class TodoController {
     public Response writeTodo(@RequestBody WriteTodoRequest request){
         Member member = memberService.findUserByUUID(request.getUuid());
 
+        if(request.getTitle().isBlank() || request.getDeadline().getDate().isBlank()){
+            // 302 에러
+            log.error("필수 입력사항 Error Code:301 " + now.getDate());
+            return new Response(false, HttpStatus.FOUND.value(), null, "필수 입력사항을 입력해주세요.");
+        }
+
         if(member!=null){
             Todo todo = Todo.createTodo(request.getTitle(), request.getContent(), request.getDeadline(), member);
             Long todo_id = todoService.writeTodo(todo);
@@ -146,10 +152,18 @@ public class TodoController {
         Member member = memberService.findUserByUUID(request.getUuid());
 
         if(member!=null){
-            Long todo_id = todoService.updateTodoStatus(request.getTodo_id());
+            Todo todo = todoService.findTodoById(request.getTodo_id());
+            if(todo!=null){
+                Long todo_id = todoService.updateTodoStatus(request.getTodo_id());
 
-            log.info("투두 상태 변경 Success Code:200 " + now.getDate());
-            return new Response(true, HttpStatus.OK.value(), todo_id, "투두 상태가 변경되었습니다.");
+                log.info("투두 상태 변경 Success Code:200 " + now.getDate());
+                return new Response(true, HttpStatus.OK.value(), todo_id, "투두 상태가 변경되었습니다.");
+            } else {
+                // 302 에러
+                log.error("투두 없음 Error Code:302 " + now.getDate());
+                return new Response(false, HttpStatus.FOUND.value(), null, "등록되지 않은 투두입니다.");
+            }
+
         } else {
             // 301 에러
             log.error("아이디 없음 Error Code:301 " + now.getDate());
