@@ -156,5 +156,4 @@ public class TodoController {
             return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 회원입니다.");
         }
     }
-
 }

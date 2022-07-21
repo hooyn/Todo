@@ -150,4 +150,20 @@ public class MemberController {
         }
     }
 
+    /**
+     * 아이디 중복 확인
+     */
+    @PostMapping("/duplicate/id")
+    public Response checkDuplicateId(@RequestBody CheckDuplicateIdRequest request){
+        boolean check = memberService.checkDuplicatedID(request.getId());
+
+        if(check){
+            log.info("아이디 중복 Success Code:200 " + now.getDate());
+            return new Response(true, HttpStatus.OK.value(), request.getId(), "사용가능한 아이디 입니다.");
+        } else {
+            // 301 에러
+            log.error("아이디 중복 Error Code:301 " + now.getDate());
+            return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "이미 사용중인 아이디 입니다.");
+        }
+    }
 }
