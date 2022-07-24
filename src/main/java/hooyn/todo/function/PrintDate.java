@@ -1,11 +1,11 @@
-package hooyn.todo.service;
+package hooyn.todo.function;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class DateService {
+public class PrintDate {
 
-    public DateService() {
+    public PrintDate() {
     }
 
     //로깅을 할 때 API 호출 시간을 표현하기 위해 클래스 생성
