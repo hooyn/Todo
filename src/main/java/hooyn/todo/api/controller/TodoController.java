@@ -2,10 +2,11 @@ package hooyn.todo.api.controller;
 
 import hooyn.todo.api.request.todo.*;
 import hooyn.todo.api.response.Response;
+import hooyn.todo.domain.Deadline;
 import hooyn.todo.domain.Member;
 import hooyn.todo.domain.Todo;
 import hooyn.todo.dto.FindTodoDto;
-import hooyn.todo.service.DateService;
+import hooyn.todo.function.PrintDate;
 import hooyn.todo.service.MemberService;
 import hooyn.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.querydsl.core.util.StringUtils.isNullOrEmpty;
+
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -22,23 +25,27 @@ public class TodoController {
 
     private final TodoService todoService;
     private final MemberService memberService;
-    private final DateService now = new DateService();
+    private final PrintDate now = new PrintDate();
 
     /**
      * 투두 작성
      */
     @PostMapping("/todo")
     public Response writeTodo(@RequestBody WriteTodoRequest request){
-        Member member = memberService.findUserByUUID(request.getUuid());
+        String uuid = request.getUuid();
+        String title = request.getTitle();
+        String content = request.getContent();
+        Deadline deadline = request.getDeadline();
 
-        if(request.getTitle().isBlank() || request.getDeadline().getDate().isBlank()){
-            // 302 에러
-            log.error("필수 입력사항 Error Code:301 " + now.getDate());
-            return new Response(false, HttpStatus.FOUND.value(), null, "필수 입력사항을 입력해주세요.");
+        if(isNullOrEmpty(uuid) || isNullOrEmpty(title) || isNullOrEmpty(content) || isNullOrEmpty(deadline.getDate())){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
+        Member member = memberService.findUserByUUID(uuid);
+
         if(member!=null){
-            Todo todo = Todo.createTodo(request.getTitle(), request.getContent(), request.getDeadline(), member);
+            Todo todo = Todo.createTodo(title, content, deadline, member);
             Long todo_id = todoService.writeTodo(todo);
 
             log.info("투두 작성 Success Code:200 " + now.getDate());
@@ -55,10 +62,18 @@ public class TodoController {
      */
     @PostMapping("/todo/deadline")
     public Response findTodoByDeadline(@RequestBody FindTodoRequest request, @RequestParam Integer page){
-        Member member = memberService.findUserByUUID(request.getUuid());
+        String uuid = request.getUuid();
+        Deadline deadline = request.getDeadline();
+
+        if(isNullOrEmpty(uuid) || isNullOrEmpty(deadline.getDate())){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        Member member = memberService.findUserByUUID(uuid);
 
         if(member!=null){
-            List<FindTodoDto> data = todoService.findTodoByDeadline(request.getUuid(), request.getDeadline(), page);
+            List<FindTodoDto> data = todoService.findTodoByDeadline(uuid, deadline, page);
 
             log.info("투두 조회 Success Code:200 " + now.getDate());
             return new Response(true, HttpStatus.OK.value(), data, "투두 데이터가 조회되었습니다.");
@@ -74,6 +89,14 @@ public class TodoController {
      */
     @PostMapping("/todo/content")
     public Response findTodoByContent(@RequestBody FindTodoRequest request, @RequestParam Integer page){
+        String uuid = request.getUuid();
+        String content = request.getContent();
+
+        if(isNullOrEmpty(uuid) || isNullOrEmpty(content)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
         Member member = memberService.findUserByUUID(request.getUuid());
 
         if(member!=null){
@@ -93,12 +116,23 @@ public class TodoController {
      */
     @PutMapping("/todo")
     public Response updateTodo(@RequestBody UpdateTodoRequest request){
-        Todo todo = todoService.findTodoById(request.getTodo_id());
+        Long req_todo_id = request.getTodo_id();
+        String uuid = request.getUuid();
+        String title = request.getTitle();
+        String content = request.getContent();
+        Deadline deadline = request.getDeadline();
+
+        if(req_todo_id==null || isNullOrEmpty(uuid) || isNullOrEmpty(title) || isNullOrEmpty(content) ||isNullOrEmpty(deadline.getDate())){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        Todo todo = todoService.findTodoById(req_todo_id);
 
         if(todo!=null){
 
-            if(todoService.checkAuthorization(request.getUuid(), request.getTodo_id())){
-                Long todo_id = todoService.updateTodo(request.getTodo_id(), request.getTitle(), request.getContent(), request.getDeadline());
+            if(todoService.checkAuthorization(uuid, req_todo_id)){
+                Long todo_id = todoService.updateTodo(req_todo_id, title, content, deadline);
 
                 log.info("투두 업데이트 Success Code:200 " + now.getDate());
                 return new Response(true, HttpStatus.OK.value(), todo_id, "업데이트가 완료되었습니다.");
@@ -121,6 +155,14 @@ public class TodoController {
      */
     @DeleteMapping("/todo")
     public Response deleteTodo(@RequestBody DeleteTodoRequest request){
+        Long req_todo_id = request.getTodo_id();
+        String uuid = request.getUuid();
+
+        if(req_todo_id==null || isNullOrEmpty(uuid)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
         Member member = memberService.findUserByUUID(request.getUuid());
 
         if(member!=null){
@@ -148,6 +190,13 @@ public class TodoController {
      */
     @PutMapping("/todo/status")
     public Response updateTodoStatus(@RequestBody UpdateTodoStatusRequest request){
+        Long req_todo_id = request.getTodo_id();
+        String uuid = request.getUuid();
+
+        if(req_todo_id==null || isNullOrEmpty(uuid)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
 
         Member member = memberService.findUserByUUID(request.getUuid());
 

@@ -3,7 +3,7 @@ package hooyn.todo.api.controller;
 import hooyn.todo.api.request.member.*;
 import hooyn.todo.api.response.Response;
 import hooyn.todo.domain.Member;
-import hooyn.todo.service.DateService;
+import hooyn.todo.function.PrintDate;
 import hooyn.todo.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.UUID;
+import static com.querydsl.core.util.StringUtils.isNullOrEmpty;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,18 +23,27 @@ public class MemberController {
     private final MemberService memberService;
     private final PasswordEncoder passwordEncoder;
 
-    private final DateService now = new DateService();
+    private final PrintDate now = new PrintDate();
 
     /**
      * 회원가입
      */
     @PostMapping("/join")
     public Response join(@RequestBody JoinRequest request){
-        boolean checkID = memberService.checkDuplicatedID(request.getUserID());
+        String userID = request.getUserID();
+        String userNM = request.getUserNM();
+        String userPW = request.getUserPW();
+
+        if(isNullOrEmpty(userID) || isNullOrEmpty(userNM) || isNullOrEmpty(userPW)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        boolean checkID = memberService.checkDuplicatedID(userID);
         if(checkID){
-            boolean checkPW = memberService.checkPasswordConstraint(request.getUserPW());
+            boolean checkPW = memberService.checkPasswordConstraint(userPW);
             if(checkPW){
-                String data = String.valueOf(memberService.join(request.getUserNM(), request.getUserID(), request.getUserPW()));
+                String data = String.valueOf(memberService.join(userNM, userID, userPW));
                 log.info(data + " 회원가입 Success Code:200 " + now.getDate());
                 return new Response(true, HttpStatus.OK.value(), data, "회원가입이 정상적으로 처리되었습니다.");
             } else {
@@ -54,9 +63,17 @@ public class MemberController {
      */
     @PostMapping("/login")
     public Response login(@RequestBody LoginRequest request){
-        Member member = memberService.findUserByUserID(request.getUserID());
+        String userID = request.getUserID();
+        String userPW = request.getUserPW();
+
+        if(isNullOrEmpty(userID) || isNullOrEmpty(userPW)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        Member member = memberService.findUserByUserID(userID);
         if(member!=null){
-            if(member.matchPassword(passwordEncoder, request.getUserPW())){
+            if(member.matchPassword(passwordEncoder, userPW)){
                 log.info(member.getUuid() + " 로그인 Success Code:200 " + now.getDate());
                 return new Response(true, HttpStatus.OK.value(), member.getUuid(), "로그인 되었습니다.");
             } else {
@@ -76,7 +93,14 @@ public class MemberController {
      */
     @PostMapping("/password/constraint")
     public Response checkPasswordConstraint(@RequestBody CheckPasswordConstraintRequest request){
-        boolean checkPW = memberService.checkPasswordConstraint(request.getPassword());
+        String password = request.getPassword();
+
+        if(isNullOrEmpty(password)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        boolean checkPW = memberService.checkPasswordConstraint(password);
 
         if(checkPW){
             log.info("비밀번호 제약조건 Success Code:200 " + now.getDate());
@@ -93,7 +117,15 @@ public class MemberController {
      */
     @PostMapping("/password/same")
     public Response checkPasswordSame(@RequestBody CheckPasswordSameRequest request){
-        if(request.getPassword().equals(request.getPassword_())){
+        String password = request.getPassword();
+        String password_ = request.getPassword_();
+
+        if(isNullOrEmpty(password) || isNullOrEmpty(password_)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        if(password.equals(password_)){
             log.info("2차 비밀번호 일치 Success Code:200 " + now.getDate());
             return new Response(true, HttpStatus.OK.value(), null, "2차 비밀번호가 일치합니다.");
         } else {
@@ -108,9 +140,17 @@ public class MemberController {
      */
     @PostMapping("/password/origin")
     public Response checkPasswordOrigin(@RequestBody ChangePasswordRequest request){
-        Member member = memberService.findUserByUUID(request.getUuid());
+        String password = request.getPassword();
+        String uuid = request.getUuid();
+
+        if(isNullOrEmpty(password) || isNullOrEmpty(uuid)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        Member member = memberService.findUserByUUID(uuid);
         if(member!=null){
-            if(member.matchPassword(passwordEncoder, request.getPassword())){
+            if(member.matchPassword(passwordEncoder, password)){
                 log.info("회원 인증 Success Code:200 " + now.getDate());
                 return new Response(true, HttpStatus.OK.value(), member.getUuid(), "회원 인증이 되었습니다.");
             } else {
@@ -130,9 +170,17 @@ public class MemberController {
      */
     @PutMapping("/password")
     public Response changePassword(@RequestBody ChangePasswordRequest request){
-        boolean checkPW = memberService.checkPasswordConstraint(request.getPassword());
+        String password = request.getPassword();
+        String req_uuid = request.getUuid();
+
+        if(isNullOrEmpty(password) || isNullOrEmpty(req_uuid)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        boolean checkPW = memberService.checkPasswordConstraint(password);
         if(checkPW){
-            String uuid = String.valueOf(memberService.changePassword(request.getUuid(), request.getPassword()));
+            String uuid = String.valueOf(memberService.changePassword(req_uuid, password));
             //UUID로 받으면 UUID는 null이 될 수 없기 때문에 500에러가 나옵니다. 조심조심!
 
             if(!uuid.equals("null")){
@@ -155,7 +203,14 @@ public class MemberController {
      */
     @PostMapping("/duplicate/id")
     public Response checkDuplicateId(@RequestBody CheckDuplicateIdRequest request){
-        boolean check = memberService.checkDuplicatedID(request.getId());
+        String id = request.getId();
+
+        if(isNullOrEmpty(id)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        boolean check = memberService.checkDuplicatedID(id);
 
         if(check){
             log.info("아이디 중복 Success Code:200 " + now.getDate());
