@@ -36,7 +36,7 @@ public class MemberController {
 
         if(isNullOrEmpty(userID) || isNullOrEmpty(userNM) || isNullOrEmpty(userPW)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         boolean checkID = memberService.checkDuplicatedID(userID);
@@ -68,7 +68,7 @@ public class MemberController {
 
         if(isNullOrEmpty(userID) || isNullOrEmpty(userPW)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         Member member = memberService.findUserByUserID(userID);
@@ -97,7 +97,7 @@ public class MemberController {
 
         if(isNullOrEmpty(password)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         boolean checkPW = memberService.checkPasswordConstraint(password);
@@ -122,7 +122,7 @@ public class MemberController {
 
         if(isNullOrEmpty(password) || isNullOrEmpty(password_)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         if(password.equals(password_)){
@@ -145,7 +145,7 @@ public class MemberController {
 
         if(isNullOrEmpty(password) || isNullOrEmpty(uuid)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         Member member = memberService.findUserByUUID(uuid);
@@ -175,7 +175,7 @@ public class MemberController {
 
         if(isNullOrEmpty(password) || isNullOrEmpty(req_uuid)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         boolean checkPW = memberService.checkPasswordConstraint(password);
@@ -207,7 +207,7 @@ public class MemberController {
 
         if(isNullOrEmpty(id)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         boolean check = memberService.checkDuplicatedID(id);

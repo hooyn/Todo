@@ -39,7 +39,7 @@ public class TodoController {
 
         if(isNullOrEmpty(uuid) || isNullOrEmpty(title) || isNullOrEmpty(content) || isNullOrEmpty(deadline.getDate())){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         Member member = memberService.findUserByUUID(uuid);
@@ -67,7 +67,7 @@ public class TodoController {
 
         if(isNullOrEmpty(uuid) || isNullOrEmpty(deadline.getDate())){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         Member member = memberService.findUserByUUID(uuid);
@@ -94,7 +94,7 @@ public class TodoController {
 
         if(isNullOrEmpty(uuid) || isNullOrEmpty(content)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         Member member = memberService.findUserByUUID(request.getUuid());
@@ -124,7 +124,7 @@ public class TodoController {
 
         if(req_todo_id==null || isNullOrEmpty(uuid) || isNullOrEmpty(title) || isNullOrEmpty(content) ||isNullOrEmpty(deadline.getDate())){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         Todo todo = todoService.findTodoById(req_todo_id);
@@ -160,7 +160,7 @@ public class TodoController {
 
         if(req_todo_id==null || isNullOrEmpty(uuid)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         Member member = memberService.findUserByUUID(request.getUuid());
@@ -195,7 +195,7 @@ public class TodoController {
 
         if(req_todo_id==null || isNullOrEmpty(uuid)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(true, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         Member member = memberService.findUserByUUID(request.getUuid());
