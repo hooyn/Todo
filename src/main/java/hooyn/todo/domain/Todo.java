@@ -17,7 +17,9 @@ public class Todo {
     @Column(name = "todo_id")
     private Long id;
 
+    @Column(length = 512)
     private String title;
+    @Column(length = 1024)
     private String content;
 
     @Embedded

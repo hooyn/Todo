@@ -38,3 +38,5 @@ out/
 
 ### 민감 정보 ###
 application.properties
+
+./logs
