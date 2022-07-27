@@ -33,8 +33,9 @@ public class MemberController {
         String userID = request.getUserID();
         String userNM = request.getUserNM();
         String userPW = request.getUserPW();
+        String userPWCHK = request.getUserPWCHK();
 
-        if(isNullOrEmpty(userID) || isNullOrEmpty(userNM) || isNullOrEmpty(userPW)){
+        if(isNullOrEmpty(userID) || isNullOrEmpty(userNM) || isNullOrEmpty(userPW) || isNullOrEmpty(userPWCHK)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
             return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
@@ -43,9 +44,16 @@ public class MemberController {
         if(checkID){
             boolean checkPW = memberService.checkPasswordConstraint(userPW);
             if(checkPW){
-                String data = String.valueOf(memberService.join(userNM, userID, userPW));
-                log.info(data + " 회원가입 Success Code:200 " + now.getDate());
-                return new Response(true, HttpStatus.OK.value(), data, "회원가입이 정상적으로 처리되었습니다.");
+                boolean checkPWSame = memberService.checkPasswordSame(userPW, userPWCHK);
+                if(checkPWSame){
+                    String data = String.valueOf(memberService.join(userNM, userID, userPW));
+                    log.info(data + " 회원가입 Success Code:200 " + now.getDate());
+                    return new Response(true, HttpStatus.OK.value(), data, "회원가입이 정상적으로 처리되었습니다.");
+                } else {
+                    // 303 에러
+                    log.error("비밀번호 불일치 Error Code:303 " + now.getDate());
+                    return new Response(false, HttpStatus.SEE_OTHER.value(), null, "비밀번호가 일치하지 않습니다.");
+                }
             } else {
                 // 302 에러
                 log.error("비밀번호 제약조건 Error Code:302 " + now.getDate());
@@ -85,53 +93,6 @@ public class MemberController {
             // 301 에러
             log.error("아이디 없음 Error Code:301 " + now.getDate());
             return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 아이디입니다.");
-        }
-    }
-
-    /**
-     * 비밀번호 제약조건 확인
-     */
-    @PostMapping("/password/constraint")
-    public Response checkPasswordConstraint(@RequestBody CheckPasswordConstraintRequest request){
-        String password = request.getPassword();
-
-        if(isNullOrEmpty(password)){
-            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
-        }
-
-        boolean checkPW = memberService.checkPasswordConstraint(password);
-
-        if(checkPW){
-            log.info("비밀번호 제약조건 Success Code:200 " + now.getDate());
-            return new Response(true, HttpStatus.OK.value(), null, "비밀번호를 사용 가능합니다.");
-        } else {
-            // 302 에러
-            log.error("비밀번호 제약조건 Error Code:302 " + now.getDate());
-            return new Response(false, HttpStatus.FOUND.value(), null, "비밀번호는 영문과 숫자포함 8-20자리입니다.");
-        }
-    }
-
-    /**
-     * 2차 비밀번호 확인
-     */
-    @PostMapping("/password/same")
-    public Response checkPasswordSame(@RequestBody CheckPasswordSameRequest request){
-        String password = request.getPassword();
-        String password_ = request.getPassword_();
-
-        if(isNullOrEmpty(password) || isNullOrEmpty(password_)){
-            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
-            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
-        }
-
-        if(password.equals(password_)){
-            log.info("2차 비밀번호 일치 Success Code:200 " + now.getDate());
-            return new Response(true, HttpStatus.OK.value(), null, "2차 비밀번호가 일치합니다.");
-        } else {
-            // 302 에러
-            log.error("2차 비밀번호 불일치 Error Code:302 " + now.getDate());
-            return new Response(false, HttpStatus.FOUND.value(), null, "2차 비밀번호가 일치하지 않습니다.");
         }
     }
 

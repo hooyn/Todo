@@ -23,4 +23,6 @@ public interface MemberService {
 
     //비밀번호 변경
     UUID changePassword(String uuid, String userPW);
+
+    boolean checkPasswordSame(String password, String password_check);
 }

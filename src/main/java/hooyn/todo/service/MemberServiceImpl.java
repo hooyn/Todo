@@ -80,4 +80,13 @@ public class MemberServiceImpl implements MemberService{
 
         return member.getUuid();
     }
+
+    @Override
+    public boolean checkPasswordSame(String password, String password_check) {
+        if(password.equals(password_check)){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
