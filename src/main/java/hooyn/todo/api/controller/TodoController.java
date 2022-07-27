@@ -37,7 +37,7 @@ public class TodoController {
         String content = request.getContent();
         Deadline deadline = request.getDeadline();
 
-        if(isNullOrEmpty(uuid) || isNullOrEmpty(title) || isNullOrEmpty(content) || isNullOrEmpty(deadline.getDate())){
+        if(isNullOrEmpty(uuid) || isNullOrEmpty(title) || isNullOrEmpty(deadline.getDate())){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
             return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }

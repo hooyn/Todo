@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class FindTodoDto {
 
-    private Long id;
+    private Long todo_id;
 
     private String title;
     private String content;
@@ -22,8 +22,8 @@ public class FindTodoDto {
 
     private TodoStatus status;
 
-    public FindTodoDto(Long id, String title, String content, Deadline deadline, LocalDateTime create_time, TodoStatus status) {
-        this.id = id;
+    public FindTodoDto(Long todo_id, String title, String content, Deadline deadline, LocalDateTime create_time, TodoStatus status) {
+        this.todo_id = todo_id;
         this.title = title;
         this.content = content;
         this.deadline = deadline;
