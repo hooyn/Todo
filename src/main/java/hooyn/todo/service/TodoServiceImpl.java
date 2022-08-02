@@ -1,5 +1,6 @@
 package hooyn.todo.service;
 
+import com.querydsl.core.Tuple;
 import hooyn.todo.domain.Deadline;
 import hooyn.todo.domain.Todo;
 import hooyn.todo.domain.TodoStatus;
@@ -75,6 +76,14 @@ public class TodoServiceImpl implements TodoService {
                         todo.getStatus()))
                 .collect(Collectors.toList());
     }
+
+    /**
+     * 투두 이벤트 조회
+     */
+    public List<Tuple> findTodoEventByYearMonth(String uuid, String year, String month){
+        return todoRepository.findEventByYearMonth(uuid, year, month);
+    }
+
 
     /**
      * 투두 삭제

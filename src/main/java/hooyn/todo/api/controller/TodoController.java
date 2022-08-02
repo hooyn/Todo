@@ -1,10 +1,12 @@
 package hooyn.todo.api.controller;
 
+import com.querydsl.core.Tuple;
 import hooyn.todo.api.request.todo.*;
 import hooyn.todo.api.response.Response;
 import hooyn.todo.domain.Deadline;
 import hooyn.todo.domain.Member;
 import hooyn.todo.domain.Todo;
+import hooyn.todo.dto.EventDto;
 import hooyn.todo.dto.FindTodoDto;
 import hooyn.todo.function.PrintDate;
 import hooyn.todo.service.MemberService;
@@ -12,9 +14,11 @@ import hooyn.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
+import java.util.stream.Stream;
 
 import static com.querydsl.core.util.StringUtils.isNullOrEmpty;
 
@@ -104,6 +108,46 @@ public class TodoController {
 
             log.info("투두 조회 Success Code:200 " + now.getDate());
             return new Response(true, HttpStatus.OK.value(), data, "투두 데이터가 조회되었습니다.");
+        } else {
+            // 301 에러
+            log.error("아이디 없음 Error Code:301 " + now.getDate());
+            return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 회원입니다.");
+        }
+    }
+
+    /**
+     * 투두 이벤트 조회
+     */
+    @PostMapping("/todo/home")
+    public Response findTodoEvent(@RequestBody FindTodoEventRequest request){
+        String uuid = request.getUuid();
+        String year = request.getYear();
+        String month = request.getMonth();
+
+        if(isNullOrEmpty(uuid) || isNullOrEmpty(year) || isNullOrEmpty(month)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        Member member = memberService.findUserByUUID(uuid);
+
+        if(member!=null){
+            List<Tuple> data = todoService.findTodoEventByYearMonth(uuid, year, month);
+            List<EventDto> eventData = new ArrayList<>();
+
+            //List<Tuple> 받아서 파싱하기
+            for (Tuple tuple : data) {
+                StringTokenizer st = new StringTokenizer(tuple.toString(), ", ");
+                String date = st.nextToken();
+                date = date.substring(1);
+                String cnt = st.nextToken();
+                cnt = cnt.substring(0, cnt.length() - 1);
+
+                eventData.add(new EventDto(date, cnt));
+            }
+
+            log.info("이벤트 조회 Success Code:200 " + now.getDate());
+            return new Response(true, HttpStatus.OK.value(), eventData, "이벤트가 조회되었습니다.");
         } else {
             // 301 에러
             log.error("아이디 없음 Error Code:301 " + now.getDate());

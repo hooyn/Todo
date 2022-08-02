@@ -1,8 +1,8 @@
 package hooyn.todo.repository;
 
+import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import hooyn.todo.domain.Deadline;
-import hooyn.todo.domain.QTodo;
 import hooyn.todo.domain.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
@@ -82,6 +82,21 @@ public class TodoRepositoryImpl implements TodoRepository {
                 .limit(10)
                 .fetch();
     }
+
+    @Override
+    public List<Tuple> findEventByYearMonth(String uuid, String year, String month){
+        List<Tuple> result = queryFactory
+                .select(todo.deadline.date, todo.deadline.date.count())
+                .distinct()
+                .from(todo)
+                .where(todo.deadline.date.like(year + "/" + month + "/%")
+                        .and(todo.member.uuid.eq(UUID.fromString(uuid))))
+                .groupBy(todo.deadline.date)
+                .fetch();
+
+        return result;
+    }
+
 
     /**
      * 권한 확인
