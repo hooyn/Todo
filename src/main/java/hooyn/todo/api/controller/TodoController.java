@@ -132,7 +132,9 @@ public class TodoController {
         Member member = memberService.findUserByUUID(uuid);
 
         if(member!=null){
+            //List<Tuple> 로 받기
             List<Tuple> data = todoService.findTodoEventByYearMonth(uuid, year, month);
+            //EventDto로 반환하기 위해서 리스트 생성
             List<EventDto> eventData = new ArrayList<>();
 
             //List<Tuple> 받아서 파싱하기
