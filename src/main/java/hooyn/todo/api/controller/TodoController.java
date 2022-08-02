@@ -116,7 +116,7 @@ public class TodoController {
     }
 
     /**
-     * 투두 이벤트 조회
+     * 투두 이벤트 조회 commit
      */
     @PostMapping("/todo/home")
     public Response findTodoEvent(@RequestBody FindTodoEventRequest request){
