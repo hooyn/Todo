@@ -3,7 +3,6 @@ package hooyn.todo.service;
 import hooyn.todo.domain.Member;
 import hooyn.todo.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +12,6 @@ import java.util.regex.Pattern;
 
 @Service
 @RequiredArgsConstructor
-@Primary //MemberService 의존관계 주입 시 우선권을 가진다.
 public class MemberService {
 
     private final MemberRepository memberRepository;

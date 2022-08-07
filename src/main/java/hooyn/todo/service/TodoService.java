@@ -7,7 +7,6 @@ import hooyn.todo.domain.TodoStatus;
 import hooyn.todo.dto.FindTodoDto;
 import hooyn.todo.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +15,6 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-@Primary
 public class TodoService {
 
     private final TodoRepository todoRepository;
