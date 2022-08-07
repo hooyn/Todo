@@ -14,11 +14,9 @@ import hooyn.todo.service.TodoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 import static com.querydsl.core.util.StringUtils.isNullOrEmpty;
 
