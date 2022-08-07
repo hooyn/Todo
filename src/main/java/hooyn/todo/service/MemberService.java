@@ -89,4 +89,12 @@ public class MemberService {
             return false;
         }
     }
+
+    /**
+     * 회원 삭제
+     */
+    @Transactional
+    public void deleteMember(String uuid){
+        memberRepository.delete(uuid);
+    }
 }

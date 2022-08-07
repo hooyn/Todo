@@ -3,11 +3,15 @@ package hooyn.todo.repository;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import hooyn.todo.domain.Member;
 import hooyn.todo.domain.QMember;
+import hooyn.todo.domain.QTodo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.util.UUID;
+
+import static hooyn.todo.domain.QMember.member;
+import static hooyn.todo.domain.QTodo.todo;
 
 @Repository
 @RequiredArgsConstructor
@@ -25,6 +29,23 @@ public class MemberRepository {
     }
 
     /**
+     * 회원 정보 삭제
+     */
+    public void delete(String uuid){
+        queryFactory
+                .delete(todo)
+                .where(todo.member.uuid.eq(UUID.fromString(uuid)))
+                .execute();
+
+        queryFactory
+                .delete(member)
+                .where(member.uuid.eq(UUID.fromString(uuid)))
+                .execute();
+
+        //추후에 메모 기능 추가되면 관련된 메모도 삭제
+    }
+
+    /**
      * 회원 엔티티 조회
      */
     public Member findByUUID(String uuid){
@@ -36,8 +57,8 @@ public class MemberRepository {
      */
     public Member findByUserId(String userID){
         return queryFactory
-                .selectFrom(QMember.member)
-                .where(QMember.member.userID.eq(userID))
+                .selectFrom(member)
+                .where(member.userID.eq(userID))
                 .fetchOne();
     }
 }

@@ -9,10 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.querydsl.core.util.StringUtils.isNullOrEmpty;
 
@@ -93,6 +90,30 @@ public class MemberController {
             // 301 에러
             log.error("아이디 없음 Error Code:301 " + now.getDate());
             return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 아이디입니다.");
+        }
+    }
+
+    /**
+     * 회원 삭제
+     */
+    @DeleteMapping("/withdraw")
+    public Response withdraw(@RequestBody WithdrawRequest request){
+        String uuid = request.getUuid();
+
+        if(isNullOrEmpty(uuid)){
+            log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
+            return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
+        }
+
+        Member member = memberService.findUserByUUID(uuid);
+        if(member != null){
+            memberService.deleteMember(uuid);
+            log.info("회원 삭제 Success Code:200 " + now.getDate());
+            return new Response(true, HttpStatus.OK.value(), member.getUuid(), "회원이 삭제되었습니다.");
+        } else {
+            // 301 에러
+            log.error("회원 정보 Error Code:301 " + now.getDate());
+            return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "등록되지 않은 회원입니다.");
         }
     }
 
