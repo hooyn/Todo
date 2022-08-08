@@ -76,6 +76,9 @@ public class TodoRepository {
                 .fetch();
     }
 
+    /**
+     * 홈에서 회원이 작성한 투두 한번에 확인
+     */
     public List<Tuple> findEventByYearMonth(String uuid, String year, String month){
         List<Tuple> result = queryFactory
                 .select(todo.deadline.date, todo.deadline.date.count())

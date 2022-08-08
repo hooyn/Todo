@@ -27,23 +27,15 @@ public class MemberController {
      */
     @PostMapping("/join")
     public Response join(@RequestBody JoinRequest request){
-        Integer check = request.getCheck();
         String userID = request.getUserID();
         String userNM = request.getUserNM();
         String userPW = request.getUserPW();
         String userPWCHK = request.getUserPWCHK();
 
-        if(check==null || isNullOrEmpty(userID) || isNullOrEmpty(userNM) || isNullOrEmpty(userPW) || isNullOrEmpty(userPWCHK)){
+        if(isNullOrEmpty(userID) || isNullOrEmpty(userNM) || isNullOrEmpty(userPW) || isNullOrEmpty(userPWCHK)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
             return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
-
-        if(check==0){
-            // 304 에러
-            log.error("아이디 중복 체크 Error Code:304 " + now.getDate());
-            return new Response(false, HttpStatus.NOT_MODIFIED.value(), null, "아이디 중복 확인을 해주세요.");
-        }
-
         boolean checkID = memberService.checkDuplicatedID(userID);
         if(checkID){
             boolean checkPW = memberService.checkPasswordConstraint(userPW);
@@ -210,4 +202,6 @@ public class MemberController {
             return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "이미 사용중인 아이디 입니다.");
         }
     }
+
+
 }
