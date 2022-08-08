@@ -3,9 +3,7 @@ package hooyn.todo.api.request.member;
 import lombok.Getter;
 
 @Getter
-public class JoinRequest {
-    private String userNM;
-    private String userID;
+public class CheckPasswordRequest {
     private String userPW;
     private String userPWCHK;
 }
