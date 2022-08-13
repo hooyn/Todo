@@ -1,6 +1,6 @@
 package hooyn.todo.api.request.todo;
 
-import hooyn.todo.domain.Deadline;
+import hooyn.todo.domain.todo.Deadline;
 import lombok.Getter;
 
 @Getter

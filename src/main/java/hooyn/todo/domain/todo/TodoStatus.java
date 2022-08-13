@@ -1,4 +1,4 @@
-package hooyn.todo.domain;
+package hooyn.todo.domain.todo;
 
 public enum TodoStatus {
     NOT_COMPLETE, ING, COMPLETE

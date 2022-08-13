@@ -1,5 +1,6 @@
-package hooyn.todo.domain;
+package hooyn.todo.domain.todo;
 
+import hooyn.todo.domain.Member;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

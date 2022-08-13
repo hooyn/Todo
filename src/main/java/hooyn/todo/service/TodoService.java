@@ -1,9 +1,9 @@
 package hooyn.todo.service;
 
 import com.querydsl.core.Tuple;
-import hooyn.todo.domain.Deadline;
-import hooyn.todo.domain.Todo;
-import hooyn.todo.domain.TodoStatus;
+import hooyn.todo.domain.todo.Deadline;
+import hooyn.todo.domain.todo.Todo;
+import hooyn.todo.domain.todo.TodoStatus;
 import hooyn.todo.dto.FindTodoDto;
 import hooyn.todo.repository.TodoRepository;
 import lombok.RequiredArgsConstructor;

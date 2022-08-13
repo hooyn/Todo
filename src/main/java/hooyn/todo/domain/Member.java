@@ -1,5 +1,6 @@
 package hooyn.todo.domain;
 
+import hooyn.todo.domain.todo.Todo;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.crypto.password.PasswordEncoder;

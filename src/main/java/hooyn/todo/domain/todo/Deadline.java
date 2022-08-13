@@ -1,4 +1,4 @@
-package hooyn.todo.domain;
+package hooyn.todo.domain.todo;
 
 import lombok.Getter;
 

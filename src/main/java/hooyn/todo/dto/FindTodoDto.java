@@ -1,7 +1,7 @@
 package hooyn.todo.dto;
 
-import hooyn.todo.domain.Deadline;
-import hooyn.todo.domain.TodoStatus;
+import hooyn.todo.domain.todo.Deadline;
+import hooyn.todo.domain.todo.TodoStatus;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
