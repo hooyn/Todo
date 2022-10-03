@@ -3,6 +3,7 @@ package hooyn.todo.repository;
 import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import hooyn.todo.domain.todo.Deadline;
+import hooyn.todo.domain.todo.QTodo;
 import hooyn.todo.domain.todo.Todo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,8 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.UUID;
 
-import static hooyn.todo.domain.QTodo.todo;
+import static hooyn.todo.domain.todo.QTodo.todo;
+
 
 @Repository
 @RequiredArgsConstructor

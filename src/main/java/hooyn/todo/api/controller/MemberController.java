@@ -180,28 +180,20 @@ public class MemberController {
     }
 
     /**
-     * 비밀번호 제약조건 확인 및 2차 비밀번호 확인
+     * 비밀번호 제약조건 확인
      */
     @PostMapping("/password/check")
     public Response checkPassword(@RequestBody CheckPasswordRequest request){
         String userPW = request.getUserPW();
-        String userPWCHK = request.getUserPWCHK();
 
-        if(isNullOrEmpty(userPWCHK) || isNullOrEmpty(userPW)){
+        if(isNullOrEmpty(userPW)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
             return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
-        boolean checkPasswordConstraint = memberService.checkPasswordConstraint(userPW);
-        if(checkPasswordConstraint){
-            if(memberService.checkPasswordSame(userPW, userPWCHK)){
-                log.info("비밀번호 확인 Success Code:200 " + now.getDate());
-                return new Response(true, HttpStatus.OK.value(), null, "비밀번호가 확인되었습니다.");
-            } else {
-                // 301 에러
-                log.error("비밀번호 불일치 Error Code:301 " + now.getDate());
-                return new Response(false, HttpStatus.MOVED_PERMANENTLY.value(), null, "비밀번호가 일치하지 않습니다.");
-            }
+        if(memberService.checkPasswordConstraint(userPW)){
+            log.info("비밀번호 제약조건 확인 Success Code:200 " + now.getDate());
+            return new Response(true, HttpStatus.OK.value(), null, "사용가능한 비밀번호 입니다.");
         } else {
             // 302 에러
             log.error("비밀번호 제약조건 Error Code:302 " + now.getDate());

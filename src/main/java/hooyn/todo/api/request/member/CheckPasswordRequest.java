@@ -5,5 +5,4 @@ import lombok.Getter;
 @Getter
 public class CheckPasswordRequest {
     private String userPW;
-    private String userPWCHK;
 }
