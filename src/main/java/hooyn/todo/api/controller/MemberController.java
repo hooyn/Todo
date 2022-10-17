@@ -8,6 +8,7 @@ import hooyn.todo.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -153,20 +154,25 @@ public class MemberController {
     public Response changePassword(@RequestBody ChangePasswordRequest request){
         String password = request.getPassword();
         String req_uuid = request.getUuid();
+        String checkPassword = request.getCheckPassword();
 
-        if(isNullOrEmpty(password) || isNullOrEmpty(req_uuid)){
+        if(isNullOrEmpty(password) || isNullOrEmpty(req_uuid) || isNullOrEmpty(checkPassword)){
             log.error("필수 입력값 없음 Error Code:400 " + now.getDate());
             return new Response(false, HttpStatus.BAD_REQUEST.value(), null, "필수 입력값을 입력해주세요.");
         }
 
         boolean checkPW = memberService.checkPasswordConstraint(password);
         if(checkPW){
-            String uuid = String.valueOf(memberService.changePassword(req_uuid, password));
+            String uuid = memberService.changePassword(req_uuid, password, checkPassword);
             //UUID로 받으면 UUID는 null이 될 수 없기 때문에 500에러가 나옵니다. 조심조심!
 
             if(!uuid.equals("null")){
                 log.info("비밀번호 변경 Success Code:200 " + now.getDate());
                 return new Response(true, HttpStatus.OK.value(), uuid, "비밀번호가 변경되었습니다.");
+            } else if(uuid.equals("Password Not Equal")){
+                // 301 에러
+                log.error("비밀번호 불일치 Error Code:303 " + now.getDate());
+                return new Response(false, HttpStatus.SEE_OTHER.value(), null, "입력한 비밀번호가 일치하지 않습니다.");
             } else {
                 // 301 에러
                 log.error("회원 정보 Error Code:301 " + now.getDate());

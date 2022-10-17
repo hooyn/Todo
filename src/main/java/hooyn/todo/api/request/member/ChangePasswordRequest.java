@@ -6,4 +6,5 @@ import lombok.Getter;
 public class ChangePasswordRequest {
     private String uuid;
     private String password;
+    private String checkPassword;
 }

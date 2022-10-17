@@ -66,9 +66,11 @@ public class MemberService {
      * 비밀번호 변경 (변경 감지 이용)
      */
     @Transactional
-    public UUID changePassword(String uuid, String userPW){
+    public String changePassword(String uuid, String userPW, String checkUserPW){
         Member member = findUserByUUID(uuid);
-        if(member==null) return null; //회원 정보 없음
+        if(member==null) return "null"; //회원 정보 없음
+
+        if(userPW.equals(checkUserPW)) return "Password Not Equal";
 
         //비밀번호 암호화
         String encodedPW = passwordEncoder.encode(userPW);
@@ -76,7 +78,7 @@ public class MemberService {
         //변경 감지를 이용한 사용자 비밀번호 업데이트
         member.setUserPW(encodedPW);
 
-        return member.getUuid();
+        return String.valueOf(member.getUuid());
     }
 
     /**
